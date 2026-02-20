@@ -53,17 +53,6 @@ There are 10 levels in total.
 ```bash
 ./run.sh
 ```
-## Project Overview Table
-
-| Section | Details |
-|----------|----------|
-| **Manual Server Start** | `python3 -m http.server 49242` → Open `http://localhost:49242` |
-| **Using the Interface** | Enter your login → Fix the network → Click **Check again** → Click **Get my config** → Export one file per level |
-| **Required Exports** | 10 configuration files (one per level) |
-| **Repository Structure** | All 10 exported files must be placed at the root of the repository |
-| **Defense Requirements** | 3 random levels solved live |
-| **Allowed Tools During Defense** | No external tools allowed; basic calculator (`bc`) tolerated |
-
 ---
 
 ## Networking Concepts Studied
