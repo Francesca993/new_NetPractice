@@ -1,4 +1,5 @@
-*This project has been created as part of the 42 curriculum by fmontini.*
+***This project has been created as part of the 42 curriculum by fmontini.***
+---
 
 # NetPractice
 
@@ -55,46 +56,150 @@ There are 10 levels in total.
 ```
 ---
 
-## Networking Concepts Studied
-
-| Concept | What Was Learned |
-|----------|----------------|
-| **TCP/IP Addressing** | How IP addresses uniquely identify devices within a network |
-| **Subnet Masks** | Network portion, host portion, network size, usable hosts, broadcast address |
-| **CIDR Notation** | Meaning of prefixes (/24, /30, /16), total addresses, usable hosts, network blocks |
-| **Default Gateway** | How packets are forwarded outside the local subnet |
-| **Routing Tables** | Configuration of `Destination → Next Hop` including `0.0.0.0/0 → <gateway>` |
-| **Routers vs Switches** | Switch connects devices inside the same network; router connects different networks |
-| **OSI Model** | Logical addressing at Layer 3 (Network Layer) |
-
----
-
 ## Resources
 
-| Type                 | Content                                 |
-|----------------------|-----------------------------------------|
-| **Concepts Studied** | TCP/IP model, subnetting, CIDR, binary IP representation, routing logic, default routes, broadcast and network addresses, OSI layers |
-| **References**       | RFC 791 (Internet Protocol), RFC 950 (Subnetting), Cisco Networking Fundamentals, MDN Web Docs |
+### Learning Materials
+
+During the project, I relied on introductory networking material to understand how addressing and routing actually work in practice.
+I studied subnetting, routing logic and IP communication using educational networking videos and curated YouTube playlists focused on beginner networking concepts.
+
+Peer-to-peer discussions with other students were also an essential part of the learning process, helping me reason about routing errors and validate my understanding.
+
+### AI Usage
+
+AI was used strictly as a learning assistant.
+
+I used it to:
+
+* clarify networking concepts (subnet masks, gateways, routing decisions)
+* verify my reasoning after solving an exercise
+* better understand why a configuration was failing
+
+No level configuration was generated automatically.
+All exercises were solved manually and I ensured I fully understood every solution.
+---
+
+## Networking Concepts Studied
+
+### 🌐 What is a network
+
+A network is a group of devices connected to communicate with each other.
+In NetPractice the devices are hosts connected through switches and routers.
 
 ---
 
-## AI Usage
+### 📬 IP Address (TCP/IP Addressing)
 
-| Purpose                   | How AI Was Used                                          |
-|---------------------------|----------------------------------------------------------|
-| Theoretical Clarification | Understanding networking concepts                        |
-| Calculation Verification  | Checking subnetting calculations                         |
-| Documentation Support     | Structuring and refining the README                      |
-| Responsibility            | All configurations solved manually and fully understood  |
+Every device has an address on the network.
+
+Example:
+192.168.1.5
+
+The IP identifies a machine so packets know where to go.
+If the IP is wrong, communication simply cannot happen.
 
 ---
 
-## Learning Outcomes
+### 🏘️ Subnet
 
-| Skill Developed      | Description                                                 |
-|----------------------|-------------------------------------------------------------|
-| Subnetting Mastery   | Deeper understanding of subnet calculation                  |
-| CIDR Confidence      | Ability to calculate network size quickly                   |
-| Routing Debugging    | Identifying and fixing forwarding issues                    |
-| Packet Flow Understanding | Clear mental model of how data moves across networks   |
-| Evaluation Readiness | Problem-solving under time constraints                      |
+The subnet answers one question:
+
+"Who is part of my network?"
+
+If two devices:
+
+* have different IPs
+* but belong to the same subnet
+
+→ they communicate directly.
+
+If they are not in the same subnet → a router is needed.
+
+---
+
+### The Subnet Mask
+
+The subnet mask is a boundary line between:
+
+* network part
+* device part
+
+Example:
+IP: 192.168.5.25
+Mask: 255.255.255.0
+
+Meaning:
+192.168.5 | 25
+
+If the network part is equal → direct communication
+If different → packet must go to the router
+
+I used the mask to determine:
+
+* valid host ranges
+* network address
+* broadcast address
+* when communication is possible without routing
+
+---
+
+### 🚪 Default Gateway
+
+The gateway is simply the router's address.
+
+Rule:
+Same network → communicate directly
+Different network → send to gateway
+
+The default route means:
+"For every unknown network, send the packet to the router."
+
+In NetPractice this is written as:
+0.0.0.0/0 → router IP
+
+---
+
+### 📡 Routers
+
+Routers connect different networks.
+
+They receive a packet and decide:
+
+* deliver locally
+* or forward it to another network
+
+Most failing levels in the project were caused by a missing or incorrect route.
+
+---
+
+### 🔌 Switches
+
+Switches connect devices inside the same local network.
+They do not route traffic; they only allow local communication.
+
+---
+
+### 📢 Network & Broadcast Addresses
+
+Each subnet contains:
+
+* a network address (cannot be assigned)
+* a broadcast address (cannot be assigned)
+* valid host addresses
+
+Assigning one of these incorrectly prevents communication.
+
+---
+
+### 🧠 Routing Logic
+
+A host follows this order:
+
+1. Check if the destination is inside its subnet
+2. If yes → send directly
+3. If not → send to the default gateway
+
+Understanding this logic was the key to solving the levels.
+
+---
+

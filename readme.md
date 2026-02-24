@@ -1,3 +1,64 @@
+***This project has been created as part of the 42 curriculum by fmontini.***
+---
+
+## How It Works
+
+The project provides a local web-based training interface.
+
+Each level contains:
+- A network diagram (hosts, routers, switches)
+- One or more communication goals (e.g., Host A must reach Host B)
+- Editable fields for IP, mask, gateway, and routes
+- Logs explaining routing failures
+
+To succeed, the student must:
+1. Analyze the network structure.
+2. Determine network boundaries using subnet masks.
+3. Configure correct IP addresses.
+4. Add default routes when necessary.
+5. Ensure bidirectional communication.
+
+There are 10 levels in total.
+---
+
+## Instructions
+
+### Running the Training Interface
+
+1. Download the project archive from the intra.
+2. Extract it into a folder.
+3. Run:
+
+```bash
+./run.sh
+```
+---
+
+## Resources
+
+### Learning Materials
+
+During the project, I relied on introductory networking material to understand how addressing and routing actually work in practice.
+I studied subnetting, routing logic and IP communication using educational networking videos and curated YouTube playlists focused on beginner networking concepts.
+
+Peer-to-peer discussions with other students were also an essential part of the learning process, helping me reason about routing errors and validate my understanding.
+
+### AI Usage
+
+AI was used strictly as a learning assistant.
+
+I used it to:
+
+* clarify networking concepts (subnet masks, gateways, routing decisions)
+* verify my reasoning after solving an exercise
+* better understand why a configuration was failing
+
+No level configuration was generated automatically.
+All exercises were solved manually and I ensured I fully understood every solution.
+---
+
+## Networking Concepts Studied
+
 # 🌐 What is a network?
 
 * **A network is a group of devices connected to each other for communication.**
@@ -11,6 +72,7 @@ Every device in a network has an address.
 ```txt
 192.168.1.5
 ```
+---
 
 # 🏘️ Subnet
 The subnet is used to say:
@@ -57,6 +119,7 @@ If:
 PC1 → 192.168.1.10. 
 PC2 → 192.168.2.20. 
 **👉 They cannot communicate directly. A router is needed.**
+---
 
 # 📡 The Gateway
 The gateway is simply:
@@ -77,6 +140,7 @@ Telephone         → 192.168.1.30
 ```
 👉 The first three numbers are the same.
 👉 Only the last number changes.
+---
 
 # The subnet mask 
 The subnet mask is just a boundary line.
@@ -465,22 +529,3 @@ It is the universal rule.
 | /30  | 255.255.255.252 | 4         | 2    |
 | /31  | 255.255.255.254 | 2         | 0*   |
 | /32  | 255.255.255.255 | 1         | 1    |
-
-### Quelle che servono a me:
-
-```
-| CIDR | Subnet Mask     | Total IP  | Host              |
-| ---- | -------------   | --------- | ----------------- |
-| /16  | 255.255.0.0     | 65.536    | 65.534            |
-| /18  | 255.255.192.0   | 16.384    | 16.382            |
-| /22  | 255.255.252.0   | 1.024     | 1.022             |
-| /24  | 255.255.255.0   | 256       | 254               |
-| /25  | 255.255.255.128 | 128       | 126               |
-| /26  | 255.255.255.192 | 64        | 62                |
-| /27  | 255.255.255.224 | 32        | 30                |
-| /28  | 255.255.255.240 | 16        | 14                |
-| /29  | 255.255.255.248 | 8         | 6                 |
-| /30  | 255.255.255.252 | 4         | 2                 |
-| /31  | 255.255.255.254 | 2         | 0*                |
-| /32  | 255.255.255.255 | 1         | 1                 |
-```
